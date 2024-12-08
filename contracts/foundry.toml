@@ -1,0 +1,17 @@
+[profile.default]
+src = "src"
+out = "out"
+evm_version = "cancun"
+libs = ["lib"]
+optimizer = false
+gas_limit = "18446744073709551615"  # Maximum uint64 value
+fs_permissions = [
+    { access = "read", path = "broadcast" },
+    { access = "read", path = "reports" }
+]
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+
+[dependencies]
+# uniswap-v3-core = { git = "https://github.com/Uniswap/v3-core.git" }
+# uniswap-v3-periphery = { git = "https://github.com/Uniswap/v3-periphery.git", tag = "v1.3.0" }
