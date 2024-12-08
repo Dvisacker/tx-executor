@@ -1,4 +1,3 @@
-use crate::bindings::geterc20tokendatabatchrequest::GetERC20TokenDataBatchRequest;
 use crate::bindings::ierc20::IERC20;
 use crate::provider::SignerProvider;
 use crate::token::TokenIsh;
@@ -11,7 +10,6 @@ use alloy::{
 use alloy_chains::NamedChain;
 use alloy_primitives::utils::parse_units;
 use alloy_primitives::U256;
-use amms::errors::AMMError;
 use eyre::Context;
 use eyre::{eyre, Error, Result};
 use serde_json::Value;
@@ -110,7 +108,7 @@ pub async fn parse_token_units(chain: &NamedChain, token: &TokenIsh, amount: &st
 pub async fn get_erc20_data_batch_request<T, N, P>(
     token_addresses: Vec<Address>,
     provider: Arc<P>,
-) -> Result<Vec<ERC20TokenData>, AMMError>
+) -> Result<Vec<ERC20TokenData>, Error>
 where
     T: Transport + Clone,
     N: Network,

@@ -204,7 +204,8 @@ mod tests {
             .unwrap();
         let block_number = 6_082_465; // A block after USDC deployment
 
-        let result = get_code_at_block(provider, contract_address, block_number).await;
+        let result: std::result::Result<Bytes, Error> =
+            get_code_at_block(provider, contract_address, block_number).await;
 
         assert!(result.is_ok());
         let code = result.unwrap();
